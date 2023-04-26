@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ ECOLO</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAweome CDN Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="shortcut icon" href="/image/logo.png" type="image/png">
+
+</head>
+<body>
+    <!-- Bouton pour commencer le quiz -->
+<div class="start_btn">Commencer</div>
+
+<!-- Boîte d'informations -->
+<div class="info_box">
+   <div class="info-title"><span>Règlement à respecter</span></div>
+   <div class="info-list">
+       <div class="info">1. Tu as seulement  <span>30 secondes</span>  pour répondre à la question.</div>
+       <div class="info">2. Si tu choisis, tu ne peux pas le modifier.</div>
+       <div class="info">3. Tu peux choisir ce que tu veux, mais seulement 1.</div>
+       <div class="info">4. Tu ne peux pas quitter le Quiz une fois commencé.</div>
+       <div class="info">5. Tu choisis les réponses en fonction de ce qui te correspond.</div>
+       <div class="info">6. Il y a 4 types de profils qui vont te correspondre et qui seront affichés à la fin :
+           <ul>
+           <li class="green"> <p class="ecolo" >Ecolo</p></li>
+           <li class="yellow"><p class="prot">Protecteur</p></li>
+           <li class="marron"> <p class="indif">Indifferent</p> </li>
+           <li class="red"> <p class="poll">Pollueur</p> </li>
+       </ul></div>
+       <img class="imagedog" src="https://cdn.discordapp.com/attachments/731172156913746023/1100125574317473972/Pngtreecorgi_cartoon_2521598.png" alt="" style="width: auto;height: 100px;">
+   </div>
+   <div class="buttons">
+       <button class="quit">Quitter</button>
+       <button class="restart">Continue</button>
+   </div>
+</div>
+
+
+<!-- Boîte du quiz -->
+<div class="quiz_box">
+   <header>
+       <div class="title">Quiz</div>
+       <div class="timer">
+           <div class="time_left_txt">Temps</div>
+           <div class="timer_sec">30</div>
+       </div>
+       <div class="time_line"></div>
+   </header>
+   <section>
+       <div class="que_text">
+           <!-- Ici, les questions seront insérées à partir de JavaScript -->
+       </div>
+       <div class="option_list">
+           <!-- Ici, les options seront insérées à partir de JavaScript -->
+       </div>
+   </section>
+
+   <!-- Pied de page de la boîte du quiz -->
+   <footer>
+       <div class="total_que">
+           <!-- Ici, le nombre de questions sera inséré à partir de JavaScript -->
+       </div>
+       <button class="next_btn">PROCHAINE QUESTION</button>
+   </footer>
+   
+</div>
+
+<!-- Boîte de résultat -->
+<div class="result_box">
+   <div class="icon">
+       <i class="fas fa-crown"></i>
+   </div>
+   <div class="complete_text">Tu as fini le Quiz!!</div>
+   <div class="score_text">
+       <!-- Ici, le résultat sera inséré à travers JavaScript -->
+    </div>
+    <div class="buttons">
+    <button class="restart">Rejouer</button>
+    <button class="quit">Quitter</button>
+    </div>
+    
+    </div>
+    <!-- À l'intérieur de ce fichier JavaScript, j'ai inséré uniquement les questions et les options -->
+    <script src="js/questions.js"></script>
+    <!-- À l'intérieur de ce fichier JavaScript, j'ai codé tous les codes Quiz -->
+    <script src="js/script.js"></script>
+    </body>
+    </html>
+    <script>
+
+    
+    // Ajouter un gestionnaire d'événements pour le formulaire qui va vérifier la réponse de l'enfant
+    const form = document.getElementById("question1");
+    form.addEventListener("submit", event => {
+      event.preventDefault(); // empêcher la soumission du formulaire
+    
+      // Récupérer la réponse sélectionnée par l'enfant
+      const answer = form.elements.answer;
+    
+      // Vérifier si l'enfant a sélectionné une réponse et si c'est la bonne réponse
+      let correctAnswer = false;
+      for (let i = 0; i < answer.length; i++) {
+        if (answer[i].checked) {
+          if (answer[i].value === "3") {
+            correctAnswer = true;
+          }
+          break;
+        }
+      }
+    
+      // Afficher un message à l'enfant en fonction de sa réponse
+      if (correctAnswer) {
+        alert("Bonne réponse!");
+      } else {
+        alert("Mauvaise réponse. Essaye encore!");
+      }
+    });
+    </script>
